@@ -1,2 +1,8 @@
 scratch
 figs
+__pycache__
+*.pyc
+.DS_Store
+.vscode
+.ipynb_checkpoints
+.env
