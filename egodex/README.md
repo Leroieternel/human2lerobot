@@ -95,6 +95,12 @@ EgoDex dataset offers fine grained annotations of the whole body part, especiall
   <img src="images/egodex_overview.png" width="700">
 </p>
 
+In this repo, the annotations are converted to delta end effector pose, where the Δx, Δy, Δz is represented as the delta position of wrist point. To define rotation, we specify a plane defined by **Wrist point, Thumb Knuckle and Index Finger Knuckle**. Δroll, Δpitch, Δyaw is the rotation of the normal vector of this plane. The following figure illustrates this definitation:
+<p align="center">
+  <img src="images/hand_normal_vec.png" width="700">
+</p>
+
+
 ## Code Structure and Installation
 
 The sample code provided in this repository consists of a few pedagogical examples for how to access and use the data in Python. The purpose of the code is to provide some intuition on how the data may be used rather than a comprehensive codebase for large-scale training. Feel free to adapt it for your use case as desired.
