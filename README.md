@@ -83,7 +83,7 @@ After conversion, all datasets share:
 
 ## Target Format: LeRobot
 
-All processed datasets are exported to the **LeRobot dataset format**, which provides:
+All processed datasets are exported to the **LeRobot dataset v2.1 format**, which provides:
 
 - Episodic organization
 - Explicit separation of observations, actions, and metadata
@@ -92,4 +92,37 @@ All processed datasets are exported to the **LeRobot dataset format**, which pro
 - Compatibility with HuggingFace datasets and PyTorch
 
 A converted dataset typically looks like:
+
+```
+lerobot_dataset/
+├── data/
+│   ├── chunk-000/
+│   │   ├── episode_000000.parquet
+│   │   ├── episode_000001.parquet
+│   │   └── ...
+│   ├── chunk-001/
+│   │   └── ...
+│   └── chunk-002/
+│       └── ...
+│
+├── videos/
+│   ├── chunk-000/
+│   │   ├── camera_front/
+│   │   │   ├── episode_000000.mp4
+│   │   │   ├── episode_000001.mp4
+│   │   │   └── ...
+│   │   └── camera_wrist/
+│   │       └── ...
+│   ├── chunk-001/
+│   │   └── ...
+│   └── chunk-002/
+│       └── ...
+│
+└── meta/
+    ├── info.json
+    ├── episodes.jsonl
+    ├── episodes_stats.jsonl
+    └── tasks.jsonl
+```
+
 
