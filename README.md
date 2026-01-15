@@ -27,7 +27,7 @@ into the **LeRobot dataset format**. Support status is summarized below.
 |-------|------|----------|--------|--------|
 | **EgoDex** | Human | HDF5 | Egocentric RGB + 3D Pose + Language | ✅ Supported |
 | **MimicGen** | Robot | HDF5 | RGB + Proprioception + Actions | ✅ Supported |
-| **Custom Robot Logs** | Robot | Others | State / Action / Video | 🚧 In Progress |
+| **Other Human Datasets** | Robot | Others | State / Action / Video | 🚧 In Progress |
 
 ## Motivation
 
