@@ -101,7 +101,8 @@ In this repo, the annotations are converted to delta end effector pose, where th
 </p>
 
 
-## Code Structure and Installation
+## Usage
+<!-- ## Code Structure and Installation
 
 The sample code provided in this repository consists of a few pedagogical examples for how to access and use the data in Python. The purpose of the code is to provide some intuition on how the data may be used rather than a comprehensive codebase for large-scale training. Feel free to adapt it for your use case as desired.
 
@@ -111,7 +112,7 @@ The sample code provided in this repository consists of a few pedagogical exampl
 
 `visualize_3d.py`: Script for visualizing skeletal annotation data in 3D.
 
-`compute_metrics.py`: Function for evaluating the "best-of-K" distance metrics from the EgoDex paper, which evaluates the quality of dexterous trajectory prediction and facilitates comparison with the benchmark scores in the paper.
+`compute_metrics.py`: Function for evaluating the "best-of-K" distance metrics from the EgoDex paper, which evaluates the quality of dexterous trajectory prediction and facilitates comparison with the benchmark scores in the paper. -->
 
 To run the code, simply start up a new virtual Python environment and install dependencies: 
 ```
@@ -121,7 +122,12 @@ conda install -c conda-forge ffmpeg=7.1.1
 pip install -r requirements.txt
 python visualize_2d.py --data_dir [path to egodex data] # sample script, could also try visualize_3d.py
 ```
-
+Then, go to `data_conversion_lerobot` folder, and run the conversion code:
+```
+cd egodex
+cd data_conversion_lerobot
+python egodex_2_lerobot.py
+```
 
 ## Acknowledgement
 Please refer to the EgoDex paper: 
