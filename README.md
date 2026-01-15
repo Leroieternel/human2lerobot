@@ -24,7 +24,7 @@ This repository supports converting a growing set of human and robot datasets
 into the **LeRobot dataset format**. Support status is summarized below.
 
 | Dataset | Type | Format | Modality | Status |
-|-------|------|----------|--------|
+|-------|------|----------|--------|--------|
 | **EgoDex** | Human | HDF5 | Egocentric RGB + 3D Pose + Language | ✅ Supported |
 | **MimicGen** | Robot | HDF5 | RGB + Proprioception + Actions | ✅ Supported |
 | **Custom Robot Logs** | Robot | Others | State / Action / Video | 🚧 In Progress |
