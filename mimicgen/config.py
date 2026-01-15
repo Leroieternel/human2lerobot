@@ -73,14 +73,14 @@ MIMICGEN_FEATURES = {
         "source_key": "obs/robot0_eef_vel_lin"
     },
     
-    "observation.states.gripper_qpos": {
+    "observation.states.robot0_gripper_qpos": {
         "dtype": "float32",
         "shape": (2,),
         "names": {"motors": ["gripper_left", "gripper_right"]},
         "source_key": "obs/robot0_gripper_qpos"
     },
     
-    "observation.states.gripper_qvel": {
+    "observation.states.robot0_gripper_qvel": {
         "dtype": "float32",
         "shape": (2,),
         "names": {"motors": ["gripper_left", "gripper_right"]},
