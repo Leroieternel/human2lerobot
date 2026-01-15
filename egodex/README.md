@@ -91,7 +91,9 @@ Lastly, language metadata annotations can be accessed under the HDF5 file attrib
 
 ## Dataset Conversion
 EgoDex dataset offers fine grained annotations of the whole body part, especially hand joints. The overview annotation of EgoDex dataset is as below:
-(images/egodex_overview.png)
+<p align="center">
+  <img src="images/egodex_overview.png" width="700">
+</p>
 
 ## Code Structure and Installation
 
