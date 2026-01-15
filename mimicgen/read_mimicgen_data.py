@@ -2,8 +2,8 @@ import h5py
 import matplotlib.pyplot as plt
 import json
 
-# h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/three_piece_assembly_d0.hdf5"
-h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/coffee_d0.hdf5"
+h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/three_piece_assembly_d0.hdf5"
+# h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/coffee_d0.hdf5"
 out_path = "agentview_image shape_demo7_frame100.png"
 
 # save one image from a sample demo
