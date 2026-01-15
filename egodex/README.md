@@ -1,6 +1,9 @@
-# EgoDex
+# EgoDex2LeRobot Conversion Toolkit
 
-This repository accompanies the research paper [EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video](https://arxiv.org/abs/2505.11709). 
+This repository provides tools to convert the EgoDex dataset into the [LeRobot dataset format (v2.1)](https://github.com/huggingface/lerobot), enabling seamless use of EgoDex data in robot learning pipelines, imitation learning, and vision-language-action (VLA) models.
+
+It builds on the original EgoDex dataset and preserves all raw data, while restructuring episodes, observations, and metadata to match the LeRobot data specification.
+accompanies the research paper [EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video](https://arxiv.org/abs/2505.11709). 
 
 EgoDex is a large-scale dataset and benchmark for egocentric dexterous manipulation collected with [ARKit](https://developer.apple.com/documentation/arkit/arkit-in-visionos) on Apple Vision Pro. The dataset has 829 hours of 30 Hz 1080p egocentric video with paired 3D pose annotations for the head, upper body, and hands as well as natural language annotation. It consists entirely of active tabletop manipulation across 194 diverse tasks. 
 
@@ -107,23 +110,9 @@ pip install -r requirements.txt
 python visualize_2d.py --data_dir [path to egodex data] # sample script, could also try visualize_3d.py
 ```
 
-## Community Projects using EgoDex
 
-Here is a non-exhaustive list of third-party projects using EgoDex that you may find useful. 
-
-[EgoDex Viewer](https://huggingface.co/spaces/pablovela5620/ego-dex-viewer): A live Gradio app hosted on HuggingFace Spaces for quick and easy visualization of the EgoDex test set data.
-
-[H-RDT](https://github.com/HongzheBi/H_RDT): Human-to-Robotics Diffusion Transformer, a state-of-the-art robot foundation model that pretrains on EgoDex data. Includes open-source code for processing and training on EgoDex data.
-
-[Being-H0](https://beingbeyond.github.io/Being-H0/): a vision-language-action (VLA) model that pretrains on EgoDex and other human datasets by processing the annotations with the MANO hand model.
-
-## License 
-
-The code in this repository is released under the terms detailed in LICENSE. The dataset is available under CC-by-NC-ND terms. 
-
-## Citation
-
-If you find this code or data useful, please cite the EgoDex paper: 
+## Acknowledgement
+Thanks to the EgoDex paper: 
 
 ```
 @misc{egodex,
