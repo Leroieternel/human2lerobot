@@ -4,14 +4,14 @@ MIMICGEN_FEATURES = {
         "dtype": "video",               
         "shape": (84, 84, 3),
         "names": ["height", "width", "rgb"],
-        "camera_dir": "camera_front",
+        "camera_dir": "observation.images.agentview_image",
         "source_key": "obs/agentview_image"
     },
     "observation.images.robot0_eye_in_hand_image": {
         "dtype": "video",
         "shape": (84, 84, 3),
         "names": ["height", "width", "rgb"],
-        "camera_dir": "wrist",
+        "camera_dir": "observation.images.robot0_eye_in_hand_image",
         "source_key": "obs/robot0_eye_in_hand_image"
     },
 

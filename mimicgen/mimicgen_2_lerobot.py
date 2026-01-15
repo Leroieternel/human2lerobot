@@ -183,7 +183,7 @@ def convert_mimicgen_to_lerobot(
 
         if instr not in task_to_index:
             task_to_index[instr] = next_task_index
-            tasks_jsonl.append({"task_index": next_task_index, "instruction": instr})
+            tasks_jsonl.append({"task_index": next_task_index, "task": instr})
             next_task_index += 1
 
         task_index = task_to_index[instr]
@@ -356,7 +356,7 @@ def convert_mimicgen_to_lerobot(
         "fps": float(fps),
         "splits": {"train": f"0:{len(episodes_jsonl)}"},
         "data_path": "data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet",
-        "video_path": "videos/chunk-{episode_chunk:03d}/{camera_key}/episode_{episode_index:06d}.mp4",
+        "video_path": "videos/chunk-{episode_chunk:03d}/{video_key}/episode_{episode_index:06d}.mp4",
         "features": features_out,
         # map camera_key -> folder name, so your loader knows which key corresponds to which folder
         "camera_keys": {k: MIMICGEN_FEATURES[k]["camera_dir"] for k, _ in camera_features},
