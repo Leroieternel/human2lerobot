@@ -97,7 +97,7 @@ EgoDex dataset offers fine grained annotations of the whole body part, especiall
 
 In this repo, the annotations are converted to delta end effector pose, where the Δx, Δy, Δz is represented as the delta position of wrist point. To define rotation, we specify a plane defined by **Wrist point, Thumb Knuckle and Index Finger Knuckle**. Δroll, Δpitch, Δyaw is the rotation of the normal vector of this plane. The following figure illustrates this definitation:
 <p align="center">
-  <img src="images/hand_normal_vec.png" width="500">
+  <img src="images/hand_normal_vec.png" width="200">
 </p>
 
 
