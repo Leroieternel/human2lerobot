@@ -16,10 +16,10 @@ specified in `config.py`.
 
 ```
 mimicgen
-├── config.py # Definition of all features to read from HDF5
-├── mimicgen_2_lerobot.py # Main conversion script
-├── read_mimicgen_data.py # Utility script to inspect MimicGen HDF5 files
-└── readme.md # This file
+├── config.py                  # Definition of all features (with its shape) to read from HDF5
+├── mimicgen_2_lerobot.py      # Main conversion script
+├── read_mimicgen_data.py      # Utility script to inspect MimicGen HDF5 files
+└── readme.md         
 ```
 
 
@@ -48,7 +48,7 @@ Below is a detailed explanation of each HDF5 key.
 - Description: Main RGB camera view (agent view).
 - Always exported as an MP4 video.
 
-#### `data/<demo>/obs/robot0_eye_in_hand_image` (optional)
+#### `data/<demo>/obs/robot0_eye_in_hand_image` 
 - Shape: `(T, 84, 84, 3)`
 - Type: `uint8`
 - Description: Wrist / eye-in-hand RGB camera.
