@@ -168,6 +168,11 @@ Each row corresponds to one timestep.
 ---
 
 ## 5. Installation
+Create Conda environment:
+```
+conda create -n mimicgen_lerobot python=3.10 -y
+conda activate mimicgen_lerobot
+```
 
 Required Python packages:
 
