@@ -124,7 +124,6 @@ python visualize_2d.py --data_dir [path to egodex data] # sample script, could a
 ```
 Then, go to `data_conversion_lerobot` folder, and run the conversion code:
 ```
-cd egodex
 cd data_conversion_lerobot
 python egodex_2_lerobot.py
 ```
