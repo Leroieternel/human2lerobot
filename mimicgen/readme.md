@@ -171,5 +171,39 @@ Each row corresponds to one timestep.
 
 Required Python packages:
 
-```bash
+```
 pip install -U h5py numpy imageio pyarrow tqdm matplotlib
+```
+
+Optional (recommend): 
+```
+sudo apt-get install -y ffmpeg
+```
+
+## 6. Running the Converter
+
+Basic
+
+```
+python mimicgen_2_lerobot.py \
+  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
+  --output_root /path/to/output_lerobot_dataset \
+  --fps 20
+```
+
+## 7. Inspecting the HDF5 Dataset
+
+```
+python read_mimicgen_data.py
+```
+This prints demo lists, observation shapes, actions, rewards, and environment metadata.
+
+## 8. Notes
+
+- Episode length T is defined by agentview_image.
+
+- All arrays must match this length.
+
+- Quaternions are assumed to be xyzw (robosuite convention).
+
+- Always verify actual HDF5 shapes before conversion.
