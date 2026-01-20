@@ -201,9 +201,6 @@ This prints demo lists, observation shapes, actions, rewards, and environment me
 ## 8. Notes
 
 - Episode length T is defined by agentview_image.
-
 - All arrays must match this length.
-
 - Quaternions are assumed to be xyzw (robosuite convention).
-
 - Always verify actual HDF5 shapes before conversion.
