@@ -10,6 +10,12 @@ into a **LeRobot-compatible dataset format**, including:
 The conversion logic is implemented in `mimicgen_2_lerobot.py`, with feature definitions
 specified in `config.py`.
 
+# Gripper variations
+mimicgen's simulation environment is wrapped around robosuite. Therefore, the robots used in the mimicgen dataset are instantiated in robosuite environment, whose default grippers are different. See this page for (robot,gripper) pairs: https://robosuite.ai/docs/modules/robots.html
+
+`gripper_utils.py` standardizes the gripper state value into 1D output ()
+Importantly, the standardized output is not implemented in `mimicgen_2_lerobot.py`!
+
 ---
 
 ## 1. Repository Structure
