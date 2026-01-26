@@ -1,7 +1,7 @@
 # MimicGen to LeRobot Conversion Toolkit
 
 This repository provides a utility to convert **MimicGen / robomimic-style HDF5 datasets**
-into a **LeRobot-compatible dataset format**, including:
+into a **LeRobot-compatible dataset format (V2.1)**, including:
 
 - Per-episode **Parquet** files (low-dimensional states, actions, rewards)
 - Per-episode **MP4 videos** (RGB observations)
