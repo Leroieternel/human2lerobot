@@ -9,7 +9,7 @@ into a **LeRobot-compatible dataset format**, including:
 
 The conversion logic is implemented in `mimicgen_lerobot_conversion/mimicgen2lerobot.py`. It is divided into seven subsets when converting, according to thir task and robot types.
 
-# Gripper variations
+### Gripper variations
 mimicgen's simulation environment is wrapped around robosuite. Therefore, the robots used in the mimicgen dataset are instantiated in robosuite environment, whose default grippers are different. See this page for (robot,gripper) pairs: https://robosuite.ai/docs/modules/robots.html
 
 `gripper_utils.py` standardizes the gripper state value into 1D output ()
