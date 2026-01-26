@@ -22,13 +22,13 @@ def standardize_gripper(gripper_qpos, robot_type, gripper_type=None):
     is_torch = isinstance(gripper_qpos, torch.Tensor)
     
     # get gripper type if not provided. The pairing is based on common robot-gripper combinations:  https://robosuite.ai/docs/modules/robots.html
-    valid_robot_types = ["Panda", "UR5e", "iiwa", "sawyer"]
+    valid_robot_types = ["Panda", "UR5e", "IIWA", "Sawyer"]
     valid_gripper_types = ["PandaGripper", "Robotiq85", "Robotiq140", "RethinkGripper"]
     robot_to_gripper = {
-        "Panda": "PandaGripper",
-        "UR5e": "Robotiq85",
-        "iiwa": "Robotiq140",
-        "sawyer": "RethinkGripper",
+        "Panda": "PandaGripper",     # 2
+        "UR5e": "Robotiq85",         # 6
+        "IIWA": "Robotiq140",        # 6
+        "Sawyer": "RethinkGripper",  # 2
     }
     expected_dims = {
         "PandaGripper": 2,
