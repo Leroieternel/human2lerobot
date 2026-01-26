@@ -84,8 +84,8 @@ The converter assumes a standard MimicGen / robomimic HDF5 structure:
 To convert the whole Mimicgen dataset to Lerobot format, please run the following command:
 
 ```
-python mimicgen_2_lerobot.py \
-  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
+python mimicgen_lerobot_conversion/mimicgen2lerobot.py \
+  --input_root /path/to/mimicgen_dataset \
   --output_root /path/to/output_lerobot_dataset \
   --fps 20
 ```
@@ -93,8 +93,8 @@ python mimicgen_2_lerobot.py \
 For sanity check, we introduce an argument `subset_size`. When this argument is specified, the script samples `subset_size` episodes from each HDF5 file and uses them to generate the LeRobot dataset. An example usage:
 
 ```
-python mimicgen_2_lerobot.py \
-  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
+python mimicgen_lerobot_conversion/mimicgen2lerobot.py \
+  --input_root /path/to/mimicgen_dataset \
   --output_root /path/to/output_lerobot_dataset \
   --fps 20
   --subset_size 2
