@@ -73,6 +73,14 @@ python read_hdf5_data/read_all_mimicgen_hdf5.py
 
 ## 4. Running the Conversion Script
 
+The converter assumes a standard MimicGen / robomimic HDF5 structure:
+
+- **T** is the episode length (number of time steps).
+- The episode length is inferred from `agentview_image`.
+- All other arrays must have the same first dimension `T`.
+
+---
+
 To convert the whole Mimicgen dataset to Lerobot format, please run the following command:
 
 ```
@@ -93,22 +101,12 @@ python mimicgen_2_lerobot.py \
 ```
 
 
-## 5. Input: MimicGen / Robomimic HDF5 Format
-
-The converter assumes a standard MimicGen / robomimic HDF5 structure:
-
-- **T** is the episode length (number of time steps).
-- The episode length is inferred from `agentview_image`.
-- All other arrays must have the same first dimension `T`.
-
----
-
-## 6. HDF5 Keys and Their Meanings
+## 5. HDF5 Keys and Their Meanings
 
 All fields are defined in `config.py` under `MIMICGEN_FEATURES`.
 Below is a detailed explanation of each HDF5 key.
 
-### 6.1 Image Observations
+### 5.1 Image Observations
 
 #### `data/<demo>/obs/agentview_image`
 - Shape: `(T, 84, 84, 3)`
@@ -124,7 +122,7 @@ Below is a detailed explanation of each HDF5 key.
 
 ---
 
-### 6.2 Low-Dimensional State Observations
+### 5.2 Low-Dimensional State Observations
 
 All of the following are stored under `data/<demo>/obs/` and exported as
 columns in the episode Parquet file.
@@ -177,7 +175,7 @@ columns in the episode Parquet file.
 
 ---
 
-### 6.3 Actions and Rewards
+### 5.3 Actions and Rewards
 
 #### `data/<demo>/actions`
 - Shape: `(T, 7)`
@@ -193,7 +191,7 @@ and gripper command.
 
 ---
 
-## 7. Output: LeRobot-Compatible Dataset
+## 6. Output: LeRobot-Compatible Dataset
 
 The converter produces the following directory structure:
 
@@ -236,7 +234,7 @@ Each row corresponds to one timestep.
 ---
 
 
-## 8. Notes
+## 7. Notes
 
 - Episode length T is defined by agentview_image.
 - All arrays must match this length.
