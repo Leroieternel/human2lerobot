@@ -103,7 +103,7 @@ python mimicgen_lerobot_conversion/mimicgen2lerobot.py \
 
 ## 5. HDF5 Keys and Their Meanings
 
-All fields are defined in `config.py` under `MIMICGEN_FEATURES`.
+All fields are defined in `mimicgen_lerobot_conversion/mimicgen_config_{subset_name}.py`.
 Below is a detailed explanation of each HDF5 key.
 
 ### 5.1 Image Observations
