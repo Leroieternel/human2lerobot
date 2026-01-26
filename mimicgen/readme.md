@@ -7,31 +7,93 @@ into a **LeRobot-compatible dataset format**, including:
 - Per-episode **MP4 videos** (RGB observations)
 - Standard **LeRobot metadata** (`episodes.jsonl`, `tasks.jsonl`, etc.)
 
-The conversion logic is implemented in `mimicgen_2_lerobot.py`, with feature definitions
-specified in `config.py`.
+The conversion logic is implemented in `mimicgen_lerobot_conversion/mimicgen2lerobot.py`. It is divided into seven subsets when converting, according to thir task and robot types.
 
 # Gripper variations
 mimicgen's simulation environment is wrapped around robosuite. Therefore, the robots used in the mimicgen dataset are instantiated in robosuite environment, whose default grippers are different. See this page for (robot,gripper) pairs: https://robosuite.ai/docs/modules/robots.html
 
 `gripper_utils.py` standardizes the gripper state value into 1D output ()
-Importantly, the standardized output is not implemented in `mimicgen_2_lerobot.py`!
 
 ---
 
-## 1. Repository Structure
-
+## 1. Installation
+Create Conda environment:
 ```
-mimicgen
-├── config.py                  # Definition of all features (with its shape) to read from HDF5
-├── mimicgen_2_lerobot.py      # Main conversion script
-├── read_mimicgen_data.py      # Utility script to inspect MimicGen HDF5 files
-└── readme.md         
+conda create -n mimicgen_lerobot python=3.10 -y
+conda activate mimicgen_lerobot
 ```
 
+Required Python packages:
+
+```
+pip install -U h5py numpy imageio pyarrow tqdm matplotlib
+```
+
+Optional (recommend): 
+```
+sudo apt-get install -y ffmpeg
+```
+
+## 2. Repository Structure
+
+```
+mimicgen/
+├── mimicgen_lerobot_conversion/
+│   ├── check_key_difference.py
+│   ├── gripper_utils.py
+│   ├── lerobot_utils.py
+│   ├── mimicgen_config_coffee.py
+│   ├── mimicgen_config_general.py
+│   ├── mimicgen_config_hammer_kitchen.py
+│   ├── mimicgen_config_three_assembly.py
+│   └── mimicgen2lerobot.py
+├── read_hdf5_data/
+│   ├── mimicgen_hdf5_keys_comparison.json
+│   ├── mimicgen_hdf5_summary.json
+│   ├── mimicgen_robot_gripper_type.json
+│   ├── read_all_mimicgen_hdf5.py
+│   └── read_single_mimicgen_hdf5.py
+└── readme.md
+```
 
 ---
 
-## 2. Input: MimicGen / Robomimic HDF5 Format
+## 3. Read the HDF5 Dataset
+
+To read single hdf5 file:
+```
+python read_hdf5_data/read_single_mimicgen_hdf5.py
+```
+This prints demo lists, observation shapes, actions, rewards, and environment metadata.
+
+Since the keys in each Mimicgen hdf5 file are different, please run `read_hdf5_data/read_all_mimicgen_hdf5.py` to check the summarization of key distribution:
+```
+python read_hdf5_data/read_all_mimicgen_hdf5.py
+```
+
+## 4. Running the Conversion Script
+
+To convert the whole Mimicgen dataset to Lerobot format, please run the following command:
+
+```
+python mimicgen_2_lerobot.py \
+  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
+  --output_root /path/to/output_lerobot_dataset \
+  --fps 20
+```
+
+For sanity check, we introduce an argument `subset_size`. When this argument is specified, the script samples `subset_size` episodes from each HDF5 file and uses them to generate the LeRobot dataset. An example usage:
+
+```
+python mimicgen_2_lerobot.py \
+  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
+  --output_root /path/to/output_lerobot_dataset \
+  --fps 20
+  --subset_size 2
+```
+
+
+## 5. Input: MimicGen / Robomimic HDF5 Format
 
 The converter assumes a standard MimicGen / robomimic HDF5 structure:
 
@@ -41,12 +103,12 @@ The converter assumes a standard MimicGen / robomimic HDF5 structure:
 
 ---
 
-## 3. HDF5 Keys and Their Meanings
+## 6. HDF5 Keys and Their Meanings
 
 All fields are defined in `config.py` under `MIMICGEN_FEATURES`.
 Below is a detailed explanation of each HDF5 key.
 
-### 3.1 Image Observations
+### 6.1 Image Observations
 
 #### `data/<demo>/obs/agentview_image`
 - Shape: `(T, 84, 84, 3)`
@@ -62,7 +124,7 @@ Below is a detailed explanation of each HDF5 key.
 
 ---
 
-### 3.2 Low-Dimensional State Observations
+### 6.2 Low-Dimensional State Observations
 
 All of the following are stored under `data/<demo>/obs/` and exported as
 columns in the episode Parquet file.
@@ -115,7 +177,7 @@ columns in the episode Parquet file.
 
 ---
 
-### 3.3 Actions and Rewards
+### 6.3 Actions and Rewards
 
 #### `data/<demo>/actions`
 - Shape: `(T, 7)`
@@ -131,7 +193,7 @@ and gripper command.
 
 ---
 
-## 4. Output: LeRobot-Compatible Dataset
+## 7. Output: LeRobot-Compatible Dataset
 
 The converter produces the following directory structure:
 
@@ -173,41 +235,6 @@ Each row corresponds to one timestep.
 
 ---
 
-## 5. Installation
-Create Conda environment:
-```
-conda create -n mimicgen_lerobot python=3.10 -y
-conda activate mimicgen_lerobot
-```
-
-Required Python packages:
-
-```
-pip install -U h5py numpy imageio pyarrow tqdm matplotlib
-```
-
-Optional (recommend): 
-```
-sudo apt-get install -y ffmpeg
-```
-
-## 6. Running the Converter
-
-Basic
-
-```
-python mimicgen_2_lerobot.py \
-  --input_hdf5 /path/to/mimicgen_dataset.hdf5 \
-  --output_root /path/to/output_lerobot_dataset \
-  --fps 20
-```
-
-## 7. Inspecting the HDF5 Dataset
-
-```
-python read_mimicgen_data.py
-```
-This prints demo lists, observation shapes, actions, rewards, and environment metadata.
 
 ## 8. Notes
 
