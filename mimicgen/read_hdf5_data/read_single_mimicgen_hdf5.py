@@ -2,7 +2,10 @@ import h5py
 import matplotlib.pyplot as plt
 import json
 
-h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/three_piece_assembly_d0.hdf5"
+# h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/three_piece_assembly_d0.hdf5"
+# h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/hammer_cleanup_d0.hdf5"
+h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/mug_cleanup_d0.hdf5"
+# h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/robot/square_d0_ur5e.hdf5"
 # h5_path = "/mnt/central_storage/data_pool_world/mimicgen_datasets/core/coffee_d0.hdf5"
 out_path = "agentview_image shape_demo7_frame100.png"
 
@@ -11,7 +14,7 @@ with h5py.File(h5_path, "r") as f:
     img = f["data/demo_7/obs/agentview_image"][100] 
 
 # img shape: (84, 84, 3), dtype=uint8
-plt.imsave(out_path, img)
+# plt.imsave(out_path, img)
 
 with h5py.File(h5_path, "r") as f:
     # check number of demos in the hdf5 

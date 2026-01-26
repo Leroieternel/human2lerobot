@@ -1,0 +1,441 @@
+{
+  "most_frequent_keys": [
+    "/data/demo_*/obs",
+    "/data/demo_*/obs/agentview_image",
+    "/data/demo_*/obs/object",
+    "/data/demo_*/obs/robot0_eef_pos",
+    "/data/demo_*/obs/robot0_eef_quat",
+    "/data/demo_*/obs/robot0_eef_vel_ang",
+    "/data/demo_*/obs/robot0_eef_vel_lin",
+    "/data/demo_*/obs/robot0_eye_in_hand_image",
+    "/data/demo_*/obs/robot0_gripper_qpos",
+    "/data/demo_*/obs/robot0_gripper_qvel",
+    "/data/demo_*/obs/robot0_joint_pos",
+    "/data/demo_*/obs/robot0_joint_pos_cos",
+    "/data/demo_*/obs/robot0_joint_pos_sin",
+    "/data/demo_*/obs/robot0_joint_vel"
+  ],
+  "coffee.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_d2.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_preparation.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_preparation_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "coffee_preparation_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod",
+      "/data/demo_*/obs/robot0_eef_pos_rel_pod_holder",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod",
+      "/data/demo_*/obs/robot0_eef_quat_rel_pod_holder"
+    ],
+    "num_missing": 0,
+    "num_extra": 4
+  },
+  "hammer_cleanup.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "hammer_cleanup_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "hammer_cleanup_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "kitchen.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "kitchen_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "kitchen_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_contact",
+      "/data/demo_*/obs/robot0_eef_force_norm"
+    ],
+    "num_missing": 0,
+    "num_extra": 2
+  },
+  "mug_cleanup.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "mug_cleanup_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "mug_cleanup_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "mug_cleanup_o1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "mug_cleanup_o2.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "nut_assembly.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "nut_assembly_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "pick_place.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "pick_place_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d0_iiwa.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d0_panda.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d0_sawyer.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d0_ur5e.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d1_iiwa.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d1_panda.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d1_sawyer.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d1_ur5e.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "square_d2.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack_three.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack_three_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "stack_three_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d0_iiwa.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d0_panda.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d0_sawyer.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d0_ur5e.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d1_iiwa.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d1_panda.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d1_sawyer.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d1_ur5e.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "threading_d2.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [],
+    "num_missing": 0,
+    "num_extra": 0
+  },
+  "three_piece_assembly.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_base",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_2",
+      "/data/demo_*/obs/robot0_eef_quat_rel_base",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_2"
+    ],
+    "num_missing": 0,
+    "num_extra": 6
+  },
+  "three_piece_assembly_d0.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_base",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_2",
+      "/data/demo_*/obs/robot0_eef_quat_rel_base",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_2"
+    ],
+    "num_missing": 0,
+    "num_extra": 6
+  },
+  "three_piece_assembly_d1.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_base",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_2",
+      "/data/demo_*/obs/robot0_eef_quat_rel_base",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_2"
+    ],
+    "num_missing": 0,
+    "num_extra": 6
+  },
+  "three_piece_assembly_d2.hdf5": {
+    "missing_from_common": [],
+    "extra_vs_common": [
+      "/data/demo_*/obs/robot0_eef_pos_rel_base",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_pos_rel_piece_2",
+      "/data/demo_*/obs/robot0_eef_quat_rel_base",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_1",
+      "/data/demo_*/obs/robot0_eef_quat_rel_piece_2"
+    ],
+    "num_missing": 0,
+    "num_extra": 6
+  },
+  "_meta": {
+    "definition": "most_frequent_keys are keys with maximum occurrence count across HDF5 files",
+    "max_count": 56,
+    "num_files_considered": 56,
+    "num_unique_keys_total": 26
+  }
+}
