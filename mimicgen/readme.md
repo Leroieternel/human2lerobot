@@ -71,6 +71,8 @@ Since the keys in each Mimicgen hdf5 file are different, please run `read_hdf5_d
 python read_hdf5_data/read_all_mimicgen_hdf5.py
 ```
 
+It will generate three `.json` files in the `read_hdf5_data` folder. `mimicgen_hdf5_keys_comparison.json` lists the most common keys appeared in all the hdf5 files, as well as the extra/missing keys of each hdf5 file compared to these common keys. `mimicgen_hdf5_summary.json` prints all the key names and their shapes of each hdf5 file. `mimicgen_robot_gripper_type.json` demonstrates the robot and gripper types of each hdf5 file.
+
 ## 4. Running the Conversion Script
 
 The converter assumes a standard MimicGen / robomimic HDF5 structure:
