@@ -12,7 +12,7 @@ The conversion logic is implemented in `mimicgen_lerobot_conversion/mimicgen2ler
 ### Gripper variations
 mimicgen's simulation environment is wrapped around robosuite. Therefore, the robots used in the mimicgen dataset are instantiated in robosuite environment, whose default grippers are different. See this page for (robot,gripper) pairs: https://robosuite.ai/docs/modules/robots.html
 
-`gripper_utils.py` standardizes the gripper state value into 1D output ()
+`mimicgen_lerobot_conversion/gripper_utils.py` standardizes the gripper state value into 1D output
 
 ---
 
