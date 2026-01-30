@@ -1,58 +1,49 @@
 # HO-Cap to LeRobot Conversion Toolkit
 
-This repository provides a utility to convert **HO-Cap / robomimic-style HDF5 datasets**
+This repository provides a utility to convert **HO-Cap datasets**
 into a **LeRobot-compatible dataset format (V2.1)**, including:
 
 - Per-episode **Parquet** files (low-dimensional states, actions, rewards)
 - Per-episode **MP4 videos** (RGB observations)
 - Standard **LeRobot metadata** (`episodes.jsonl`, `tasks.jsonl`, etc.)
 
-The conversion logic is implemented in `mimicgen_lerobot_conversion/mimicgen2lerobot.py`. It is divided into seven subsets when converting, according to thir task and robot types.
-
-### Gripper variations
-mimicgen's simulation environment is wrapped around robosuite. Therefore, the robots used in the mimicgen dataset are instantiated in robosuite environment, whose default grippers are different. See this page for (robot,gripper) pairs: https://robosuite.ai/docs/modules/robots.html
-
-`mimicgen_lerobot_conversion/gripper_utils.py` standardizes the gripper state value into 1D output
+The conversion logic is implemented in `hocap_lerobot_conversion/hocap2lerobot.py`. It is divided into 3 subsets when converting, according to thir task and robot types.
 
 ---
 
 ## 1. Installation
 Create Conda environment:
 ```
-conda create -n mimicgen_lerobot python=3.10 -y
-conda activate mimicgen_lerobot
+conda create -n hocap_lerobot python=3.10 -y
+conda activate hocap_lerobot
 ```
 
 Required Python packages:
 
 ```
-pip install -U h5py numpy imageio pyarrow tqdm matplotlib
-```
-
-Optional (recommend): 
-```
 sudo apt-get install -y ffmpeg
+pip install -U h5py matplotlib numpy pyarrow imageio imageio-ffmpeg tqdm pyyaml opencv ffmpeg
 ```
+Install Lerobot:
+```
+pip install lerobot
+```
+\
 
 ## 2. Repository Structure
 
 ```
-mimicgen/
-├── mimicgen_lerobot_conversion/
-│   ├── check_key_difference.py
-│   ├── gripper_utils.py
-│   ├── lerobot_utils.py
-│   ├── mimicgen_config_coffee.py
-│   ├── mimicgen_config_general.py
-│   ├── mimicgen_config_hammer_kitchen.py
-│   ├── mimicgen_config_three_assembly.py
-│   └── mimicgen2lerobot.py
-├── read_hdf5_data/
-│   ├── mimicgen_hdf5_keys_comparison.json
-│   ├── mimicgen_hdf5_summary.json
-│   ├── mimicgen_robot_gripper_type.json
-│   ├── read_all_mimicgen_hdf5.py
-│   └── read_single_mimicgen_hdf5.py
+hocap/
+├── hocap_lerobot_conversion/
+│   ├── extract_delta_eef.py            # extract delta end effector pose (in world frame) from .npz files
+│   ├── hocap_config.py                 # config file to load the value by keys and generate info.json
+│   ├── hocap2lerobot.py                # main script to convert hocap to lerobot
+│   ├── lerobot_utils.py                # some utility functions from lerobot package
+├── read_hocap_label/
+│   ├── check_projection_2d.py          # check the projection from hand_joints_3d points to hand_joints_2d
+│   ├── check_projection_world.py       # check if the key cam_K is the transform matrix from camera to world
+│   ├── read_hocap_label.py             # read .npz label (check the keys and their values)
+│   └── read_image_shape.py             # check image shape of each camera
 └── readme.md
 ```
 
@@ -69,16 +60,16 @@ The converter assumes a standard MimicGen / robomimic HDF5 structure:
 
 ---
 
-To convert the whole Mimicgen dataset to Lerobot format, please run the following command:
+To convert the whole Hocap dataset to Lerobot format, please run the following command:
 
 ```
-python mimicgen_lerobot_conversion/mimicgen2lerobot.py \
-  --input_root /path/to/mimicgen_dataset \
+python hocap_lerobot_conversion/hocap2lerobot.py \
+  --input_root /path/to/hocap_dataset \
   --output_root /path/to/output_lerobot_dataset \
-  --fps 20
+  --fps {fps}
 ```
 
-For sanity check, we introduce an argument `subset_size`. When this argument is specified, the script samples `subset_size` episodes from each HDF5 file and uses them to generate the LeRobot dataset. An example usage:
+For sanity check, we introduce an argument `subset_size`, `subjects`, `num_views`. When this argument is specified, the script samples `subset_size` episodes from each HDF5 file and uses them to generate the LeRobot dataset. An example usage:
 
 ```
 python mimicgen_lerobot_conversion/mimicgen2lerobot.py \
