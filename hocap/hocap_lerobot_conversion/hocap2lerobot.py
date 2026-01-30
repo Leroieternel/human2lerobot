@@ -28,7 +28,7 @@ CHUNK_SIZE = 1000
 # -----------------------------
 # utils
 # -----------------------------
-def ensure_dir(p: str):
+def make_dir(p: str):
     os.makedirs(p, exist_ok=True)
 
 
@@ -148,7 +148,25 @@ def build_info_json(dataset_name: str, fps: float, total_episodes: int, total_fr
         }
 
     act_dim = 12 if mode == "both_hands" else 6
-    features["action"] = {"dtype": "float32", "shape": [act_dim], "names": None}
+
+    if act_dim == 6:
+        features["action"] = {
+            "dtype": "float32",
+            "shape": [6],
+            "names": {"motors": ["x", "y", "z", "roll", "pitch", "yaw"]},
+        }
+    else:
+        # both_hands: left first then right
+        features["action"] = {
+            "dtype": "float32",
+            "shape": [12],
+            "names": {
+                "motors": [
+                    "left_x", "left_y", "left_z", "left_roll", "left_pitch", "left_yaw",
+                    "right_x", "right_y", "right_z", "right_roll", "right_pitch", "right_yaw",
+                ]
+            },
+        }
 
     total_chunks = int((total_episodes + CHUNK_SIZE - 1) // CHUNK_SIZE) if total_episodes > 0 else 1
 
@@ -178,11 +196,8 @@ def _hand_valid_from_delta(delta_6: np.ndarray) -> bool:
     return bool(np.isfinite(delta_6).any())
 
 
-# -----------------------------
-# dataset contexts (3 outputs)
-# -----------------------------
-def _init_dataset_ctx(root: str):
-    ensure_dir(root)
+def _init_dataset(root: str):
+    make_dir(root)
     ctx = {
         "root": root,
         "data_root": os.path.join(root, "data"),
@@ -194,15 +209,15 @@ def _init_dataset_ctx(root: str):
         "tasks": [],
         "stats_fh": None,
     }
-    ensure_dir(ctx["data_root"])
-    ensure_dir(ctx["videos_root"])
-    ensure_dir(ctx["meta_root"])
+    make_dir(ctx["data_root"])
+    make_dir(ctx["videos_root"])
+    make_dir(ctx["meta_root"])
 
     ctx["paths"] = {
         "tasks": os.path.join(ctx["meta_root"], "tasks.jsonl"),
         "episodes": os.path.join(ctx["meta_root"], "episodes.jsonl"),
         "info": os.path.join(ctx["meta_root"], "info.json"),
-        "episode_stats": os.path.join(ctx["meta_root"], "episode_stats.jsonl"),
+        "episode_stats": os.path.join(ctx["meta_root"], "episodes_stats.jsonl"),
     }
     ctx["stats_fh"] = open(ctx["paths"]["episode_stats"], "w", encoding="utf-8")
     return ctx
@@ -251,9 +266,9 @@ def convert(
     selected_views = get_selected_image_specs(num_views)
 
     # init 3 output datasets
-    left_ctx = _init_dataset_ctx(os.path.join(output_root, "left_hand"))
-    right_ctx = _init_dataset_ctx(os.path.join(output_root, "right_hand"))
-    both_ctx = _init_dataset_ctx(os.path.join(output_root, "both_hands"))
+    left_ctx = _init_dataset(os.path.join(output_root, "left_hand"))
+    right_ctx = _init_dataset(os.path.join(output_root, "right_hand"))
+    both_ctx = _init_dataset(os.path.join(output_root, "both_hands"))
 
     extr_dict, rs_master = load_extrinsics_yaml(extrinsics_yaml)
     rs_master = str(rs_master) if rs_master is not None else HOCAP_CONFIG["images"]["camera_5"]["source_key"]
@@ -369,8 +384,8 @@ def convert(
                 chunk_name = f"chunk-{episode_chunk:03d}"
                 data_dir = os.path.join(ctx["data_root"], chunk_name)
                 vids_dir = os.path.join(ctx["videos_root"], chunk_name)
-                ensure_dir(data_dir)
-                ensure_dir(vids_dir)
+                make_dir(data_dir)
+                make_dir(vids_dir)
 
                 # ---- 6) write videos + collect video_paths ----
                 video_paths: Dict[str, str] = {}
@@ -378,7 +393,7 @@ def convert(
                     if frames.shape[0] != T:
                         continue
                     out_dir = os.path.join(vids_dir, f"observation.images.{img_key}")
-                    ensure_dir(out_dir)
+                    make_dir(out_dir)
                     out_path = os.path.join(out_dir, f"episode_{epi:06d}.mp4")
                     write_video(frames, out_path, fps=fps)
                     video_paths[f"observation.images.{img_key}"] = out_path
@@ -436,10 +451,10 @@ def convert(
 
     print(
         "[DONE]\n"
-        f"  left_hand : {left_ctx['epi']} episodes\n"
-        f"  right_hand: {right_ctx['epi']} episodes\n"
-        f"  both_hands: {both_ctx['epi']} episodes\n"
-        f"  -> {output_root}"
+        f"left_hand: {left_ctx['epi']} episodes\n"
+        f"right_hand: {right_ctx['epi']} episodes\n"
+        f"both_hands: {both_ctx['epi']} episodes\n"
+        f"Output lerobot dataset root: {output_root}"
     )
 
 
